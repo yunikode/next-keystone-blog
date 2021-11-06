@@ -4,6 +4,8 @@ import Link from 'next/link';
 // Import the generated Lists API from Keystone
 import { query } from '.keystone/api';
 
+import Text from '../components/Text';
+
 // Home receives a `posts` prop from `getStaticProps` below
 export default function Home({
   posts,
@@ -11,7 +13,7 @@ export default function Home({
   return (
     <div>
       <main style={{margin: "3rem"}}>
-      <h1>Hello World! 👋🏻 </h1>
+      <Text as='h1' size="xxl">Hello World! 👋🏻 </Text>
       <ul>
         {/* Render each post with a link to the content page */}
         {posts.map(post => (
