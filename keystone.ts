@@ -6,5 +6,9 @@ export default config({
     provider: 'sqlite',
     url: process.env.DATABASE_URL || 'file:./app.db',
   },
+  experimental: {
+    generateNextGraphqlAPI: true,
+    generateNodeAPI: true,
+  },
   lists,
 });
