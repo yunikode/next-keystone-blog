@@ -11,4 +11,11 @@ export default config({
     generateNodeAPI: true,
   },
   lists,
+  images: {
+    upload: 'local',
+    local: {
+      storagePath: 'public/images',
+      baseUrl: '/images',
+    },
+  }
 });

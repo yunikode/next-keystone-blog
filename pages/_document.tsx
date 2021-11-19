@@ -9,7 +9,7 @@ export default class Document extends NextDocument {
         <Head>
           <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
         </Head>
-        <body>
+        <body  style={{ display: "flex", justifyContent: "center", flexDirection: 'column', backgroundColor: 'beige', alignItems: 'center', minHeight: '100vh' }}>
           <Main />
           <NextScript />
         </body>

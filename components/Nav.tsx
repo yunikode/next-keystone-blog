@@ -6,7 +6,11 @@ const Navbar = styled("div", {
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: "BlueViolet",
+  width: '100vw',
   height: "4rem",
+  position: 'fixed',
+  top: '0',
+  left: '0'
 });
 
 const Container = styled("div", {

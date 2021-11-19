@@ -9,10 +9,19 @@ import {
   DocumentRenderer,
   DocumentRendererProps,
 } from "@keystone-next/document-renderer";
+import { InferRenderersForComponentBlocks } from '@keystone-next/fields-document/component-blocks';
+import { componentBlocks } from '../../component-blocks';
 
 import Text from '../../components/Text'
 
 import slugify from "slugify";
+
+const componentBlockRenderers: InferRenderersForComponentBlocks<typeof componentBlocks> = {
+  image: props => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={props.imageSrc} alt='test' style={{maxWidth: '768px'}}/>
+  },
+};
 
 const renderers: DocumentRendererProps["renderers"] = {
   // Render heading blocks
@@ -50,19 +59,21 @@ const renderers: DocumentRendererProps["renderers"] = {
       }
       return null;
     },
+  
   },
 };
 
 export default function PostPage({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
+   return (
     <div>
       <main style={{ margin: "3rem" }}>
         
         <Text as="h1" size='xl'>{post.title}</Text>
         <DocumentRenderer
           document={post.content.document}
+          componentBlocks={componentBlockRenderers}
           renderers={renderers}
         />
       </main>

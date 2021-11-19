@@ -3,6 +3,23 @@ import Link from "next/link";
 import Text from "../components/Text";
 // Import the generated Lists API from Keystone
 import { query } from ".keystone/api";
+import {styled } from '../stitches.config'
+
+const A = styled('a', {
+  textDecoration: 'none',
+  color: 'inherit',
+  fontSize: '1.25rem',
+})
+
+const UL = styled('ul', {
+  listStyle: 'none',
+})
+
+const LI = styled('li', {
+  lineHeight: '2rem',
+  '&:before': {
+    content: '↬ '  }
+})
 
 // Home receives a `posts` prop from `getStaticProps` below
 export default function Posts({
@@ -13,17 +30,17 @@ export default function Posts({
       <Text as="h1" size="xxl">
         Current articles
       </Text>
-      <ul>
+      <UL>
         {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/post/${post.slug}`}>
-              <a>
+          <LI key={post.id}>
+            <Link href={`/post/${post.slug}`} passHref>
+              <A>
                 {post.title} - by {post.author.name}
-              </a>
+              </A>
             </Link>
-          </li>
+          </LI>
         ))}
-      </ul>
+      </UL>
     </>
   );
 }

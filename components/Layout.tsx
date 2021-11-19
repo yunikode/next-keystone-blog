@@ -25,8 +25,11 @@ export default function Layout({ children }: any) {
           <A>authors</A>
         </Link>
       </Nav>
-      <main style={{ display: "flex", justifyContent: "center" }}>
+      <main>
+        <section style={{ display: "flex", justifyContent: "center", maxWidth: '768px' }}>
+
         <Container>{children}</Container>
+        </section>
       </main>
     </>
   );
